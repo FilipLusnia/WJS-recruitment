@@ -1,0 +1,31 @@
+/* fonts */
+
+@font-face {
+	font-family: 'Inter-Regular';
+	src: url(./fonts/Inter-Regular.woff2);
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Inter-Medium';
+	src: url(./fonts/Inter-Medium.woff2);
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Poppins-Medium';
+	src: url(./fonts/Poppins-Medium.woff2);
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Poppins-SemiBold';
+	src: url(./fonts/Poppins-SemiBold.woff2);
+	font-weight: 600;
+}
+
+/* style */
+
+html {
+	font-family: 'Inter-Regular';
+}
