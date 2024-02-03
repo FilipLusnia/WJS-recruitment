@@ -52,8 +52,9 @@ button, a {
 	align-items: center;
 	height: 55px;
 	padding: 12px;
+	width: 100%;
 	box-sizing: border-box;
-	position: relative;
+	position: fixed;
 	background-color: var(--background-color);
 	z-index: 1;
 }
@@ -192,7 +193,7 @@ button, a {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		position: absolute;
+		position: fixed;
 		right: 0;
 		top: calc(55px + 4px);
 		box-shadow: 0 0 10px #0000001f;
