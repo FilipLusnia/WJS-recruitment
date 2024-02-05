@@ -1,0 +1,98 @@
+/* fonts */
+
+@font-face {
+	font-family: 'RobotoMono-Medium';
+	src: url(./fonts/RobotoMono-Medium.woff2);
+	font-weight: 400;
+}
+
+/* style */
+
+:root {
+	--background-color: #131212;
+	--accent-color: #3E3E3E;
+	--text-color: #FFFFFF;
+
+	font-family: 'RobotoMono-Medium';
+	font-size: 16px;
+	color: var(--text-color);
+}
+
+body, p {
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.cmd {
+	background-color: var(--background-color);
+	width: 100%;
+	max-width: 700px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.cmd_top {
+	background-color: var(--accent-color);
+	height: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cmd_top > p {
+	font-size: 0.65rem;
+}
+
+.cmd_window_container {
+	height: 300px;
+	padding: 20px;
+	box-sizing: border-box;
+	overflow-y: auto;
+	scroll-behavior: smooth;
+}
+
+.cmd_window {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.cmd_window > li {
+	font-size: 0.75rem;
+	margin-bottom: 15px;
+}
+
+.cmd_window > li.-user {
+	color: yellow;
+}
+
+.cmd_window > li.-error {
+	color: red;
+}
+
+.cmd_input_container {
+	height: 80px;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.cmd_input {
+	height: 40px;
+	border-radius: 10px;
+	width: 100%;
+	background-color: var(--accent-color);
+	color: var(--text-color);
+	font-family: 'RobotoMono-Medium';
+	border: none;
+	box-sizing: border-box;
+	padding: 0 10px;
+	outline: none;
+}
