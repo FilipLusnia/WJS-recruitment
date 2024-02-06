@@ -15,11 +15,11 @@ Small searchbar. The search is engaged either by typing something into the input
 Launch the index.html file to see it live.
 
 ### Task 3
-CMD terminal with built-in commands and possibility to add custom commands through "custom-cmds.js" file, found at project's root.\ 
+CMD terminal with built-in commands and possibility to add custom commands through "custom-cmds.js" file, found at project's root.\
 The custom command's format:
 
-`
-CUSTOM_COMMANDS = {	
+<pre>
+CUSTOM_COMMANDS = {
 	[command name]: {
  		name: [command's name in string format],
    		desc: [command's description in string format],
@@ -27,6 +27,6 @@ CUSTOM_COMMANDS = {
        	},
 	...
 }
-`
+</pre>
 
 To see this task live, it is required to launch an index.html through some sort of live server, for example: [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
