@@ -55,7 +55,7 @@ body {
 	padding: 20px;
 	box-sizing: border-box;
 	overflow-y: auto;
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 }
 
 .cmd_window {
@@ -95,4 +95,22 @@ body {
 	box-sizing: border-box;
 	padding: 0 10px;
 	outline: none;
+}
+
+.cmd_suggestions {
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.cmd_suggestions {
+	color: #686868;
+	font-size: 0.75rem;
+	padding: 0 20px 20px;
+	box-sizing: border-box;
+}
+
+.cmd_suggestions_list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }

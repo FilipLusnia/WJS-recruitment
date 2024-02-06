@@ -59,6 +59,6 @@ function callbackDouble(args) {
 	if (!isNaN(parseInt(x))) {
 		outputNewLine(`${x} * 2 = ${x*2}`)
 	} else {
-		outputNewLine('', 'error')
+		outputNewLine('Provided argument has to be a number', 'error')
 	}
 }
