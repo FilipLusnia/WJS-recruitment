@@ -6,7 +6,7 @@ All tasks are included in this repository
 Simple header menu. 
 Launch the index.html file to see it live.
 
-## Task 1 Custom
+### Task 1 Custom
 Enhanced solution from task_1. It has slightly changed HTML to make styling easier and to include responsive mobile menu.
 Launch the index.html file to see it live.
 
