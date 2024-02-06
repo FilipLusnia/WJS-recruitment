@@ -19,13 +19,13 @@ CMD terminal with built-in commands and possibility to add custom commands throu
 The custom command's format:
 
 `
-CUSTOM_COMMANDS = {<br>
-	[command name]: {<br>
- 		name: [command's name in string format],<br>
-   		desc: [command's description in string format],<br>
-     		callback: [command's callback function, executing the desired code]<br>
-       	},<br>
-	...<br>
+CUSTOM_COMMANDS = { ```
+	[command name]: { ```
+ 		name: [command's name in string format], ```
+   		desc: [command's description in string format], ```
+     		callback: [command's callback function, executing the desired code] ```
+       	}, ```
+	... ```
 }
 `
 
