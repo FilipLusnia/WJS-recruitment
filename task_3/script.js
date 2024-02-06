@@ -16,10 +16,12 @@ const browseCommandHistory = (dir) => {
 		if ((dir === 'up') && (commandNumber > 0)) {
 			commandNumber --
 			cmdInput.value = history[commandNumber]
+			suggestCommand(cmdInput.value)
 		}
 		if ((dir === 'down') && (commandNumber < history.length)) {
 			commandNumber ++
 			cmdInput.value = history[commandNumber] ?? ''
+			suggestCommand(cmdInput.value)
 		}
 	}
 }
@@ -39,6 +41,35 @@ const parseCommand = (string) => {
 	return {
 		command: command,
 		args: args
+	}
+}
+
+const suggestCommand = (string) => {
+
+	if (string.length > 0) {
+		showSuggestions(true)
+		let possibleComms = [];
+		const { command } = parseCommand(string);
+		
+		for (const c of Object.keys(availableCommands)) {
+			if (command === c.substring(0, string.length)){
+				possibleComms = [...possibleComms, availableCommands[c].name]
+			}
+		}
+
+		if (possibleComms.length > 0) {
+			let listItems = [];
+			for (const cName of possibleComms) {
+				const li = document.createElement('li')
+				li.innerText = cName;
+				listItems = [...listItems, li]
+			}
+			cmdSuggestionsList.replaceChildren(...listItems)
+		} else {
+			showSuggestions(false)
+		}
+	} else {
+		showSuggestions(false)
 	}
 }
 
@@ -66,62 +97,37 @@ cmdInput.focus();
 cmdInput.addEventListener('keyup', e => {
 	const val = e.target.value;
 
-	if (val.length > 0) {
-		showSuggestions(true)
-		let possibleComms = [];
-		const { command } = parseCommand(val);
-		
-		for (const c of Object.keys(availableCommands)) {
-			if (command === c.substring(0, val.length)){
-				possibleComms = [...possibleComms, availableCommands[c].name]
-			}
-		}
-
-		if (possibleComms.length > 0) {
-			let listItems = [];
-			for (const cName of possibleComms) {
-				const li = document.createElement('li')
-				li.innerText = cName;
-				listItems = [...listItems, li]
-			}
-			cmdSuggestionsList.replaceChildren(...listItems)
-		} else {
-			showSuggestions(false)
-		}
-	} else {
-		showSuggestions(false)
-	}
-
-	if (e.key === 'Enter' || e.keyCode === 13) {
-		showSuggestions(false)
-
-		if (val.length > 0) {
-			outputNewLine(val.toLowerCase(), 'user');
-			history = [...history, val];
-			commandNumber = history.length;
-
-			const { command, args } = parseCommand(val);
-
-			if (availableCommands.hasOwnProperty(command)) {
-				try {
-					availableCommands[command].callback(args)
-				} catch (err) {
-					outputNewLine(err, 'error')
-				}
-			} else {
-				outputNewLine("Invalid command - type \"help\" for available commands", 'error')
-			}
-		}
-
-		e.target.value = ''
-	}
-
 	if (e.key === 'ArrowUp' || e.keyCode === 38) {
         cmdInput.setSelectionRange(val.length, val.length);
 		browseCommandHistory('up')
-	}
-
-	if (e.key === 'ArrowDown' || e.keyCode === 40) {
+	} else if (e.key === 'ArrowDown' || e.keyCode === 40) {
 		browseCommandHistory('down')
+	} else {
+		
+		suggestCommand(val)
+
+		if (e.key === 'Enter' || e.keyCode === 13) {
+			showSuggestions(false)
+	
+			if (val.length > 0) {
+				outputNewLine(val.toLowerCase(), 'user');
+				history = [...history, val];
+				commandNumber = history.length;
+	
+				const { command, args } = parseCommand(val);
+	
+				if (availableCommands.hasOwnProperty(command)) {
+					try {
+						availableCommands[command].callback(args)
+					} catch (err) {
+						outputNewLine(err, 'error')
+					}
+				} else {
+					outputNewLine("Invalid command - type \"help\" for available commands", 'error')
+				}
+			}
+	
+			e.target.value = ''
+		}
 	}
 })
