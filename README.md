@@ -20,11 +20,11 @@ The custom command's format:
 `
 CUSTOM_COMMANDS = {
 	[command name]: {
-		name: [command's name in string format],
-		desc: [command's description in string format],
-		callback: [command's callback function, executing the desired code]
-	},
- ...
- }
- `
+ 		name: [command's name in string format],
+   		desc: [command's description in string format],
+     		callback: [command's callback function, executing the desired code]
+       	},
+	...
+}
+`
 To see this task live, it is required to launch an index.html through some sort of live server, for example: [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
