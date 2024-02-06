@@ -66,29 +66,6 @@ cmdInput.focus();
 cmdInput.addEventListener('keyup', e => {
 	const val = e.target.value;
 
-	if (e.key === 'Enter' || e.keyCode === 13) {
-
-		if (val.length > 0) {
-			outputNewLine(val.toLowerCase(), 'user');
-			history = [...history, val];
-			commandNumber = history.length;
-
-			const { command, args } = parseCommand(val);
-
-			if (availableCommands.hasOwnProperty(command)) {
-				try {
-					availableCommands[command].callback(args)
-				} catch (err) {
-					outputNewLine(err, 'error')
-				}
-			} else {
-				outputNewLine("Invalid command - type \"help\" for available commands", 'error')
-			}
-		}
-
-		e.target.value = ''
-	}
-
 	if (val.length > 0) {
 		showSuggestions(true)
 		let possibleComms = [];
@@ -113,6 +90,30 @@ cmdInput.addEventListener('keyup', e => {
 		}
 	} else {
 		showSuggestions(false)
+	}
+
+	if (e.key === 'Enter' || e.keyCode === 13) {
+		showSuggestions(false)
+
+		if (val.length > 0) {
+			outputNewLine(val.toLowerCase(), 'user');
+			history = [...history, val];
+			commandNumber = history.length;
+
+			const { command, args } = parseCommand(val);
+
+			if (availableCommands.hasOwnProperty(command)) {
+				try {
+					availableCommands[command].callback(args)
+				} catch (err) {
+					outputNewLine(err, 'error')
+				}
+			} else {
+				outputNewLine("Invalid command - type \"help\" for available commands", 'error')
+			}
+		}
+
+		e.target.value = ''
 	}
 
 	if (e.key === 'ArrowUp' || e.keyCode === 38) {
