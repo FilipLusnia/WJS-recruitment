@@ -19,14 +19,14 @@ CMD terminal with built-in commands and possibility to add custom commands throu
 The custom command's format:
 
 `
-CUSTOM_COMMANDS = {\
-	[command name]: {\
- 		name: [command's name in string format],\
-   		desc: [command's description in string format],\
-     		callback: [command's callback function, executing the desired code]\
-       	},\
-	...\
-}\
+CUSTOM_COMMANDS = {<br>
+	[command name]: {<br>
+ 		name: [command's name in string format],<br>
+   		desc: [command's description in string format],<br>
+     		callback: [command's callback function, executing the desired code]<br>
+       	},<br>
+	...<br>
+}
 `
 
 To see this task live, it is required to launch an index.html through some sort of live server, for example: [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
