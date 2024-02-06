@@ -29,4 +29,7 @@ CUSTOM_COMMANDS = {
 }
 </pre>
 
+To submit a command, type it into the input field and press Enter key.\
+Terminal has an option to search through previously called commands with up and down arrow keys. 
+
 To see this task live, it is required to launch an index.html through some sort of live server, for example: [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
