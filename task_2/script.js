@@ -47,7 +47,7 @@ const showResults = input => {
 		downloadData(input)
 			.then(data => {
 				toggleResultsVisiblity(true)
-				if (data) {
+				if (data.products.length > 0) {
 					const products = data.products.map(prod => {
 						const listItem = document.createElement('li')
 						const title = document.createElement('p')
